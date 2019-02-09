@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Chart.js CDN Add-ins -->
+      <script src="js/moment-with-locales.js"></script>
+      <script src="js/moment.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <style>
+         .card-img-top {
+            width: auto;
+         }
+         .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 100px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50px;
+         }
+         .fa:hover {
+            opacity: 0.7;
+         }
+         .fa-linkedin {
+            background: #007bb5;
+            color: white;
+         }
+      </style>
+      <title>Taylor's Portfolio</title>
+   </head>
+   <body>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand" href="#">Taylor's Portfolio</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-autom nav-pills ml-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="#">Home<span class="sr-only"></span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#featured-projects">My Projects</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <!-- /NAVBAR -->
+      <!-- JUMBOTRON -->
+      <div class="jumbotron jumbotron-fluid bg-info" style="background-image: url('images/dawn-fog-foggy-161212.jpg'); background-size: cover;">
+         <div class="container text-sm-center" style="background-color: black; opacity: .5;">
+            <h1 class="display-2 pt-1 text-warning" style="text-shadow: #000 0px 0px 1px;">My Portfolio</h1>
+            <p class="lead text-warning" style="text-shadow: #000 0px 0px 1px;">This is Taylor's Portfolio of GitHub Projects over the past year and half.</p>
+         </div>
+      </div>
+      <!-- /JUMBOTRON -->
+      <!-- ABOUT ME -->
+      <div class="container pt-4">
+         <div class="row">
+            <div class="col-lg">
+               <h3 class="mb-4">Why Did I Learn How to Code</h3>
+               <p>I was frustrated that I had to write overly-granular user stories to build products that seemed simple for my clients.</p>
+               <p>I also wanted to be able to build more customized data products without relying exclusively on rigid enterprise technologies.</p>
+               <h3 class="mb-4">What I Learned Along The Way</h3>
+               <p>Object Oriented Programming was challenging for me to grasp at first, but I am getting better.</p>
+               <p>Coding is more about creativity and problem solving than computer science.</p>
+               <p>Thanks to Treehouse &amp; other services, I've been able to build out a completely new skill set and develop confidence in an area that was more or less a black box to me about 2 years ago.</p>
+            </div>
+            <div class="col-lg">
+               <h3 class="mb-4">My Skills</h3>
+               <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Object Oriented Programming</strong>: Python &amp; JavaScript</a>
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Data Science Tools</strong>: SciKit Learn, Pandas, Numpy</a>
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Cloud Technologies</strong>: AWS, Serverless Technologies, Linux</a>
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Databases</strong>: SQL, MPP Computing, Data Modeling</a>
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Front End Design</strong>: HTML, CSS, JavaScript</a>
+                  <a href="#" class="list-group-item list-group-item-action"><strong>Web Development Frameworks</strong>: Django &amp; Flask</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /ABOUT ME -->
+      <!-- PROJECTS VISUALIZATION -->
+      <h1 class="display-4 text-center my-5 text-muted">Projects Deployed Over Time</h1>
+      <div class="container">
+         <div class="row my-2">
+            <div class="col-md-12">
+               <div class="card">
+                  <div class="card-body">
+                     <canvas id="lineChart" height="300"></canvas>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /PROJECTS VISUALIZATION -->
+      
+      <!-- PROJECTS -->
+      <h1 class="display-4 text-center my-5 text-muted" id="featured-projects">Four Random Projects</h1>
+      <p style="width: 50%; margin: auto;">Below four random projects from my GitHub Repo are displayed each time the page refreshes.</p>
+      <div id="projects"></div>
+      <hr>
+      <!-- /PROJECTS -->
+
+      <!-- signup form -->
+      <div class="row py-4 text-muted" style="padding: 0px 20px 0px 20px;">
+         <div class="col-md col-xl-5">
+            <p><strong>About Treehouse</strong></p>
+            <p>Treehouse brings affordable technology education to people everywhere to help them achieve their dreams and change the world.</p>
+         </div>
+         <div class="col-md col-xl-5 ml-auto">
+            <p><strong>Stay up-to-date on Future Projects</strong></p>
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Email">
+               <span class="input-group-btn">
+               <button class="btn btn-primary" type="button">Sign up</button>
+               </span>
+            </div>
+         </div>
+      </div>
+      <div class="card-body text-center">
+         <a href="https://www.linkedin.com/in/taylorculver/" class="fa fa-linkedin"></a>
+         <p>I Don't Always Use Social Media, but When I Do, It's LinkedIn.</p>
+      </div>
+      <!-- /signup form -->
+      <!-- footer -->
+      <div class="row py-3" style="padding: 0px 20px 0px 20px;">
+         <div class="col-md-7"> </div>
+         <div class="col-md text-md-right">
+            <small>&copy; 2019 Front End Tech Degree &amp; Treehouse</small>
+         </div>
+      </div>
+      <!-- /footer -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="js/api.js"></script>
+   </body>
+</html>
